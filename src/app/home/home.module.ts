@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { AuxiliarModule } from '../auxiliar/auxiliar.module';
 
 
 @NgModule({
   imports: [
+    AuxiliarModule,
     CommonModule,
     FormsModule,
     IonicModule,

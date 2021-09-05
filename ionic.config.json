@@ -1,5 +1,7 @@
 {
   "name": "onAgentAppEntrega",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

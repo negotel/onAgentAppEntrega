@@ -1,0 +1,88 @@
+<ion-header class="ion-no-border">
+
+    <ion-toolbar>
+        <ion-buttons slot="secondary">
+            <ion-button size="small" routerLink="/template/perfil" routerLinkActive="active">
+                <ion-icon color="primary" name="person-circle-outline" style="font-size: 24px;"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Detalhes da entrega</ion-title>
+    </ion-toolbar>
+
+</ion-header>
+<ion-content>
+
+    <ion-card *ngIf="dados">
+        <ion-item>
+            <ion-label>
+                <h3>{{nome}}</h3>
+                <p>{{id}}/{{etiqueta}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-card-content>
+            <small> &raquo; Endereço de entrega</small>
+            <h3>{{rua}}, {{numero}} {{complemento}} - {{bairro}}, {{cidade}}-{{estado}} {{cep}}</h3>
+        </ion-card-content>
+
+
+        <ion-button expand="block" [hidden]="cameraResult" color="dark" size="" (click)="abrirCamera()">
+            <ion-icon slot="icon-only" size="large" name="camera"></ion-icon>
+        </ion-button>
+
+        <ion-button expand="block" [hidden]="!cameraResult" color="success" size="" (click)="abrirActionSheet()">
+            <ion-icon slot="start" size="large" name="checkmark-done-outline"></ion-icon>
+            Finalizar
+        </ion-button>
+
+    </ion-card>
+
+    <ul class="timeline" *ngIf="timeline">
+        <li>
+            <div class="timeline-thumb bg-color-blue timeline-icon">
+                <fa-icon [icon]="faLongArrowAltUp"></fa-icon>
+            </div>
+            <div class="timeline-item">
+                <h4>Objeto em rota</h4>
+                <div class="timeline-stats">
+                    <i class="ion-heart "></i>20.08.2021 17h25
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="timeline-thumb bg-color-blue timeline-icon ">
+                <fa-icon [icon]="faTruck"></fa-icon>
+            </div>
+            <div class="timeline-item ">
+                <h4>Objeto saiu para o destino</h4>
+                <div class="timeline-stats ">
+                    <i class="ion-heart "></i>20.08.2021 19h03
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="timeline-thumb bg-color-green timeline-icon ">
+                <fa-icon [icon]="faCheck"></fa-icon>
+            </div>
+            <div class="timeline-item ">
+                <h4>Objeto Entregue</h4>
+                <div class="timeline-stats ">
+                    <i class="ion-heart "></i>20.08.2021 19h25
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <ion-card *ngIf="!dados ">
+        <ion-item>
+            <ion-label>
+                <ion-skeleton-text animated style="width: 100%; height:20px "></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%; height:20px "></ion-skeleton-text>
+            </ion-label>
+        </ion-item>
+        <ion-card-content>
+            <ion-skeleton-text animated style="width: 70%; height:15px "></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 100%; height:15px "></ion-skeleton-text>
+        </ion-card-content>
+        <ion-skeleton-text animated style="width: 100%; height: 40px "></ion-skeleton-text>
+    </ion-card>
+</ion-content>

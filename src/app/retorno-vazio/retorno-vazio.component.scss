@@ -1,0 +1,17 @@
+.content-not-sync {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span {
+        text-align: center;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        font-size: 14px;
+    }
+    img {
+        width: 70%;
+    }
+}

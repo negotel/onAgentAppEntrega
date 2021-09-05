@@ -1,0 +1,30 @@
+<ion-content mode="ios">
+    <div class="container">
+        <div class="logo">
+            <img src="../../assets/imgs/logo.png" alt="">
+        </div>
+
+        <ion-row style="margin: 8px;"></ion-row>
+
+        <div class="container-form">
+            <div class="title">
+                <h1>Login</h1>
+            </div>
+            <ion-row style="margin:8px;"></ion-row>
+            <div class="form">
+                <form [formGroup]="formLogin" (ngSubmit)="logar()">
+                    <div class="form-control">
+                        <span>Placa</span>
+                        <input type="text" placeholder="Informe seu login" class="placa" formControlName="placa" value="">
+                        <span>Senha</span>
+                        <input type="password" placeholder="Informe sua senha" class="input-form" formControlName="senha" value="">
+                        <ion-button type="submit" expand="block" color="primary" size="" [disabled]="formLogin.invalid">
+                            <span *ngIf="carregar">Login</span>
+                            <div class="loader" *ngIf="!carregar">Loading...</div>
+                        </ion-button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ion-content>

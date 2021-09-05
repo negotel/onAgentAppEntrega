@@ -1,0 +1,29 @@
+<ion-content mode="ios">
+    <div class="container">
+        <div class="logo">
+            <img src="../../assets/imgs/logo.png" alt="">
+        </div>
+
+        <ion-row style="margin: 8px;"></ion-row>
+
+        <div class="container-form">
+            <div class="title">
+                <h1>Login</h1>
+            </div>
+            <ion-row style="margin: 8px;"></ion-row>
+            <div class="form">
+                <form>
+                    <div class="form-control">
+                        <span>Placa</span>
+                        <input type="text" placeholder="Informe seu login" class="placa" value="">
+                        <span>Senha</span>
+                        <input type="password" placeholder="Informe sua senha" class="input-form" value="">
+                        <button class="btn-form">
+                            <span (click)="login()">Login</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ion-content>

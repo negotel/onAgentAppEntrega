@@ -1,20 +1,75 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button size="small" routerLink="/template/perfil" routerLinkActive="active">
+                <ion-icon name="person-circle-outline" style="font-size: 24px;"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Onlog Entregas</ion-title>
+    </ion-toolbar>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="5">
+                <ion-card mode="ios">
+                    <ion-icon size="large" name="duplicate-outline"></ion-icon>
+                    <ion-card-title>Aberto</ion-card-title>
+                    <ion-card-subtitle>{{totalEntregaRestante}}/<small>{{totalEntrega}}</small></ion-card-subtitle>
+                </ion-card>
+            </ion-col>
+
+            <ion-col size="7">
+                <ion-card mode="ios">
+                    <ion-icon size="large" name="checkmark-done-outline"></ion-icon>
+                    <ion-card-title>Finalizada/<span>Devolução</span></ion-card-title>
+                    <ion-card-subtitle>{{totalEntregaFinalizada}}/<small class="totalDevolucao">{{totalEntregaDevolucao}}</small></ion-card-subtitle>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-list-header>
+        Entrega(s)
+    </ion-list-header>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Puxe para atualizar" refreshingSpinner="circles" refreshingText="Atualizando dados...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <app-retorno-vazio *ngIf="listaEntrega === null" srcImage="undraw_deliveries_131a" message="Quando uma nova entrega for adicionada, ela aparecerá aqui!"></app-retorno-vazio>
+
+    <ion-card *ngFor="let item of listaEntrega; index as position" (click)="showActionSheet(item)">
+        <ion-item>
+            <ion-label>
+                <p style="font-size: 10px; margin-bottom: 5px">{{position+1}} - Dados do Destinatario</p>
+                <h3>{{item.nome}}</h3>
+                <p>{{item.eID}}/{{item.ticket}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-card-content>
+            <small> &raquo; Endereço de entrega</small>
+            <h3>{{item.rua}}, {{item.numero}} {{item.complemento}} - {{item.bairro}}, {{item.cidade}}-{{item.uf}} {{item.cep}}</h3>
+        </ion-card-content>
+    </ion-card>
+
+
+    <ion-card *ngIf="carregarSkeleton">
+        <ion-item>
+            <ion-label>
+                <ion-skeleton-text animated style="width: 100%; height:20px"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%; height:20px"></ion-skeleton-text>
+            </ion-label>
+        </ion-item>
+        <ion-card-content>
+            <ion-skeleton-text animated style="width: 70%; height:15px"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 100%; height:15px"></ion-skeleton-text>
+        </ion-card-content>
+        <ion-skeleton-text animated style="width: 100%; height: 40px"></ion-skeleton-text>
+    </ion-card>
+
 </ion-content>

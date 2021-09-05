@@ -1,0 +1,135 @@
+ion-content {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 23px;
+        height: 100%;
+        background: rgba(238, 237, 237, 0.39) !important;
+        overflow: auto;
+        .logo {
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 120px;
+            }
+        }
+        .container-form {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.89) !important;
+            padding: 23px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            width: 100%;
+            .title {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                h1 {
+                    font-family: 'Avenir', sans-serif;
+                    color: #404040;
+                    font-weight: 300;
+                    font-style: normal;
+                    font-size: 24px;
+                    line-height: 24px;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+                p {
+                    color: #4F4F4F;
+                    font-size: 12px;
+                    line-height: 24px;
+                    font-style: normal;
+                    font-weight: normal;
+                }
+            }
+            .form {
+                display: flex;
+                form {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .form-control {
+                         ::placeholder {
+                            color: rgb(209, 209, 209);
+                        }
+                        width: 100%;
+                        span {
+                            color: #242A38;
+                            font-style: normal;
+                            font-weight: 800;
+                            font-size: 14px;
+                            line-height: 19px;
+                        }
+                        input {
+                            margin-top: 5px;
+                            margin-bottom: 15px;
+                            width: 100%;
+                            height: 50px;
+                            background: #FFFFFF;
+                            outline: none;
+                            /* Cinza - Claro */
+                            border: 1px solid #F1F2F6;
+                            box-sizing: border-box;
+                            border-radius: 5px;
+                            &.placa {
+                                /* text-transform: uppercase; */
+                            }
+                        }
+                        ion-button {
+                            width: 100%;
+                            outline: none;
+                            span {
+                                font-family: 'Avenir', sans-serif;
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: 14px;
+                                line-height: 19px;
+                                text-align: center;
+                                color: #FFFFFF;
+                            }
+                        }
+                    }
+                    p {
+                        font-family: 'Avenir', sans-serif;
+                        display: flex;
+                        align-items: center;
+                        justify-items: center;
+                        text-align: center;
+                        margin-top: 10%;
+                        font-style: normal;
+                        font-weight: 800;
+                        font-size: 14px;
+                        line-height: 19px;
+                        /* Azul Escuro */
+                        color: #242545;
+                    }
+                }
+            }
+        }
+        .footer {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            padding-bottom: 15px;
+            p {
+                font-family: 'Cera Pro', sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 13px;
+                /* identical to box height */
+                text-align: center;
+                /* Azul Escuro */
+                color: #242545;
+            }
+        }
+    }
+}
